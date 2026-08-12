@@ -7,6 +7,7 @@
   "homepage": "https://metafloor.ai",
   "repository": "https://github.com/MetaFloor-AI/metafloor-scm-plugin",
   "license": "MIT",
+  "category": "productivity",
   "keywords": ["supply-chain", "erp", "sap", "oracle", "kinaxis", "procurement", "warehouse", "quality", "recall", "safety", "autonomy"],
   "skills": [
     "./skills/platforms/erp",
