@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/brand/metafloor-mark.png" width="200" alt="MetaFloor">
+</p>
+
 # MetaFloor Supply Chain — a Claude Code plugin
 
 Deep supply-chain operator expertise for Claude Code, plus a deterministic policy gate for consequential
