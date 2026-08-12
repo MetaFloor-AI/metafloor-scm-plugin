@@ -3,14 +3,14 @@
   "owner": { "name": "MetaFloor", "url": "https://metafloor.ai" },
   "metadata": {
     "description": "MetaFloor supply-chain plugins for Claude Code.",
-    "version": "0.2.3"
+    "version": "0.2.4"
   },
   "plugins": [
     {
       "name": "supply-chain",
       "source": "./",
       "description": "Deep supply-chain operator expertise across 55 enterprise systems and 16 end-to-end workflows, plus a deterministic policy gate with an autonomy dial. Owns expertise + safety policy, never the tool/integration layer.",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "category": "productivity",
       "tags": ["supply-chain", "erp", "sap", "procurement", "warehouse", "workflows", "safety", "autonomy"]
     }

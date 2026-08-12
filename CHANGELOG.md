@@ -2,6 +2,14 @@
 
 All notable changes to the MetaFloor Supply Chain plugin.
 
+## [0.2.4] - 2026-08-12
+### Fixed
+- **PreToolUse gate now loads on real installs.** `plugin.json` declared `"hooks": "./hooks/hooks.json"`,
+  but Claude Code already auto-loads the standard `hooks/hooks.json` — the double declaration made the hook
+  fail to load (`Duplicate hooks file detected`) on `plugin install`, silently disabling the safety gate for
+  installed users. Removed the redundant manifest reference; the gate now wires up from the standard location.
+  Caught by a real marketplace install test (strict `validate` did not surface it).
+
 ## [0.2.3] - 2026-08-12
 ### Changed
 - Agents are now **fully tool-enabled**: removed the `disallowedTools` restrictions from the 4 review agents.
