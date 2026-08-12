@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaFloor Supply Chain — Architecture</title>
+<style>
+  :root{--ink:#0f172a;--slate:#334155;--muted:#64748b;--line:#e2e8f0;--line2:#cbd5e1;--indigo:#4f46e5;--indigo-bg:#eef2ff;--indigo-line:#c7d2fe;--card:#f8fafc;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .page{max-width:1180px;margin:0 auto;padding:56px 40px 90px}
+  header.hero{border-bottom:1px solid var(--line);padding-bottom:34px;margin-bottom:12px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  h1.title{font-size:40px;font-weight:800;letter-spacing:-.025em;margin:10px 0 12px}
+  .lede{font-size:18px;color:var(--slate);max-width:820px;line-height:1.55}
+  .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:12px 18px;background:var(--card)}
+  .stat .n{font-size:24px;font-weight:800;color:var(--indigo)}
+  .stat .l{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px}
+  section{margin-top:56px}
+  .fig{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04),0 24px 48px -32px rgba(15,23,42,.18)}
+  .fig img{display:block;width:100%;height:auto}
+  h2{font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .prose{max-width:900px}
+  .ex{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .ex .q{background:#0f172a;color:#e2e8f0;padding:18px 24px;font-size:16px}
+  .ex .q b{color:#fff}
+  .ex .cols{display:grid;grid-template-columns:1fr 1fr}
+  .ex .c{padding:22px 24px}
+  .ex .c.without{background:#fef2f2;border-right:1px solid var(--line)}
+  .ex .c.with{background:#f0fdf4}
+  .ex .c h4{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+  .ex .c.without h4{color:#b91c1c} .ex .c.with h4{color:#15803d}
+  .ex .c p{font-size:15px;color:var(--slate);line-height:1.55}
+  .ex .c ul{margin:8px 0 0 18px;font-size:15px;color:var(--slate);line-height:1.6}
+  pre{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:20px 22px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.7}
+  pre .c{color:#7c8aa5}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{border:1px solid var(--line);border-radius:14px;padding:20px}
+  .step .num{width:30px;height:30px;border-radius:8px;background:var(--indigo-bg);color:var(--indigo);border:1px solid var(--indigo-line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:12px}
+  .step h4{font-size:16px;font-weight:700;margin-bottom:5px}
+  .step p{font-size:14px;color:var(--muted);line-height:1.5}
+  .step code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#f1f5f9;border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+  footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">MetaFloor Supply Chain · Claude Code plugin</div>
+    <h1 class="title">Architecture</h1>
+    <p class="lede">Deep supply-chain operator expertise for Claude Code, plus a deterministic policy gate for consequential actions. The plugin owns <b>expertise + safety policy</b>, never the tool/integration layer &mdash; so it stays portable across whatever the customer connects.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">55</div><div class="l">enterprise systems</div></div>
+      <div class="stat"><div class="n">16</div><div class="l">end-to-end workflows</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">review agents</div></div>
+      <div class="stat"><div class="n">L0&ndash;L5</div><div class="l">autonomy dial</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">tools owned</div></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>1 · What the plugin owns</h2>
+    <div class="fig"><img src="img/01-overview.png" alt="Layered architecture: the plugin adds expertise and safety policy above Claude Code's runtime; the customer brings the connectors."></div>
+  </section>
+
+  <section>
+    <h2>2 · How a consequential action is governed</h2>
+    <div class="fig"><img src="img/02-gate-flow.png" alt="The gate flow: a connector call is classified, resolved against the autonomy dial, decided allow/ask/deny deterministically, and audited."></div>
+  </section>
+
+  <section>
+    <h2>3 · The autonomy dial</h2>
+    <div class="fig"><img src="img/03-autonomy-dial.png" alt="The autonomy dial from L0 observe to L5 yolo, and the floors that hold at every level."></div>
+  </section>
+
+  <section>
+    <h2>4 · Safety boundary</h2>
+    <div class="fig"><img src="img/04-safety-boundary.png" alt="What the gate governs and what it does not: reads pass, mapped writes gate, unmapped apps and non-mcp actions are ungoverned."></div>
+  </section>
+
+  <section>
+    <h2>5 · Independent review agents</h2>
+    <div class="fig"><img src="img/05-agents.png" alt="Four review subagents: decision-reviewer, scope-auditor, genealogy-tracer, cross-system-reconciler."></div>
+  </section>
+
+  <section>
+    <h2>6 · Worked example — the trap the plugin catches</h2>
+    <div class="ex">
+      <div class="q"><b>Operating in SAP.</b> &ldquo;Cancel all 10,000 units of PO-12831.&rdquo; &nbsp;State: ordered 10,000, goods received 4,000.</div>
+      <div class="cols">
+        <div class="c without">
+          <h4>Without the plugin</h4>
+          <p>Takes the instruction at face value and cancels all 10,000 &mdash; including the 4,000 already received. A received quantity is not cancellable; this creates a reconciliation mess and a real-world loss.</p>
+        </div>
+        <div class="c with">
+          <h4>With the plugin</h4>
+          <ul>
+            <li>The <b>sap-mm</b> expertise separates <b>received (4,000, not cancellable)</b> from <b>open (6,000)</b>.</li>
+            <li><b>cancel</b> classifies as <b>destructive</b> &rarr; the gate holds it for human approval.</li>
+            <li><b>scope-auditor</b> confirms the scope is the 6,000 open, not the whole PO.</li>
+            <li>Result: cancel the 6,000 open, flag the 4,000 received, human signs off.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>7 · Get started</h2>
+    <p class="prose" style="color:var(--slate);font-size:16px;margin-bottom:20px">Day-one value needs no connectors and no config &mdash; just ask. The gate engages only when you wire real connectors.</p>
+    <pre><span class="c"># 1 — the expertise works immediately, zero setup</span>
+claude --plugin-dir . -p 'How does SAP handle a partial goods receipt on a PO, and what breaks if I cancel the PO?'
+
+<span class="c"># 2 — watch the plugin reason through a consequential action (no tool executed)</span>
+./scripts/demo.sh
+
+<span class="c"># 3 — developer checks</span>
+claude plugin validate --strict .
+python3 -m unittest discover -s eval/tests -t .
+python3 eval/run.py --max-over-gate 0</pre>
+  </section>
+
+  <section>
+    <h2>8 · Configure for a deployment</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h4>Set the dial</h4><p>Edit <code>.scm/autonomy.yaml</code> per workflow × app. Ships gated by default, so a fresh install never auto-approves.</p></div>
+      <div class="step"><div class="num">2</div><h4>Map your connectors</h4><p>Run <code>/scm-connectors</code> to map your real MCP tool names into read / write / destructive / outbound. It echoes the classes back to confirm.</p></div>
+      <div class="step"><div class="num">3</div><h4>Run a workflow</h4><p>Mark a workflow active with <code>/scm-run</code>; the gate then governs every consequential connector call it proposes.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    MetaFloor Supply Chain &mdash; a Claude Code plugin. The plugin owns expertise + safety policy; Claude Code owns the runtime, tools, MCP, and execution; the customer brings the connectors. MIT licensed.
+  </footer>
+</div>
+</body>
+</html>

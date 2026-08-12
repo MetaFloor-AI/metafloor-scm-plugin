@@ -1,0 +1,11 @@
+{
+  "app": "ariba",
+  "simulator": false,
+  "reads": ["get_sourcing_event", "list_sourcing_events", "get_event_award", "get_supplier", "list_suppliers", "get_supplier_questionnaire", "get_contract_workspace", "search_contract_workspaces", "get_contract", "list_contracts", "get_requisition", "list_requisitions", "get_purchase_order", "list_purchase_orders", "get_order_confirmation", "punchout_catalog"],
+  "writes": ["create_sourcing_event", "update_sourcing_event", "award_sourcing_event", "create_requisition", "update_requisition", "submit_requisition", "create_contract_workspace", "update_contract_workspace", "publish_contract_workspace", "update_contract_accumulator", "create_purchase_order", "update_purchase_order", "set_supplier_qualification_status", "set_supplier_preferred_status"],
+  "destructive": ["cancel_sourcing_event", "rescind_award", "cancel_purchase_order", "close_purchase_order", "delete_requisition", "cancel_contract_workspace", "deactivate_supplier", "disqualify_supplier"],
+  "outbound": ["publish_sourcing_event", "invite_suppliers", "send_order", "send_supplier_questionnaire", "email_supplier", "export_rfx_award"],
+  "value_fields": ["amount", "netAmount", "totalCost", "grandTotal", "value", "extendedPrice"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": "currency"
+}

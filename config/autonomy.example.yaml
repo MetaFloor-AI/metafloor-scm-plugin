@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# scm-supply-chain — autonomy dial
+#
+# ONE dial controls how much the agent does on its own, set PER (workflow × app).
+# The agent never picks its own level; you set it here and a code hook enforces it.
+#
+#   L0 observe        reads/flags only            — every write is BLOCKED
+#   L1 suggest        drafts the action           — every write is BLOCKED (you run it)
+#   L2 gated          executes, pauses each write — every write ASKS you first   ← default
+#   L3 bounded-auto   executes within limits      — auto within $/qty/count, else ASKS
+#   L4 auto           executes freely in-workflow — audited after the fact
+#   L5 yolo           no gates                    — DEV/TEST ONLY; refuses a real connector
+#
+# Floors that hold under EVERY level: reads always pass; irreversible/destructive
+# writes gate below L4; anything that sends data outside the company gates below L5.
+# If this file is missing or unparseable the hook fails closed to L0 (reads only).
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Applies to any (workflow, app) with no explicit entry below.
+default_level: gated
+
+overrides:
+  # Invoice 3-way match on Coupa: let small, in-budget short-pays/adjustments
+  # auto-approve; everything larger asks.
+  - workflow: invoice-3way-match
+    app: coupa
+    level: bounded-auto
+    max_value: 10000      # per-action value ceiling AND the session budget (salami-proof)
+    max_qty: 500          # per-line quantity ceiling
+    max_count: 5          # how many actions may auto-approve per session
+
+  # Same workflow on SAP (the ERP system of record) stays stricter: pause on every write.
+  - workflow: invoice-3way-match
+    app: sap
+    level: gated
+
+  # Customs screening is a sensor, not an actuator — keep it read-only.
+  - workflow: customs-screen-shipment
+    level: observe

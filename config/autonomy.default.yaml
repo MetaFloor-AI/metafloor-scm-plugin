@@ -1,0 +1,12 @@
+# scm-supply-chain — runtime DEFAULT autonomy config.
+#
+# This file is the fallback the hook uses when a project has NO .scm/autonomy.yaml.
+# It is intentionally gated-only: every write pauses for human approval, nothing
+# auto-approves. A fresh install is therefore safe by default.
+#
+# To enable more autonomy (bounded-auto, per-workflow/app limits), copy
+# config/autonomy.example.yaml to your project's .scm/autonomy.yaml and edit it.
+# Do NOT add bounded-auto/auto overrides here — this file must never let a
+# fresh install auto-approve real spend.
+
+default_level: gated

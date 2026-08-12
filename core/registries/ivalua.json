@@ -1,0 +1,11 @@
+{
+  "app": "ivalua",
+  "simulator": false,
+  "reads": ["get_requisition", "list_requisitions", "get_purchase_order", "list_purchase_orders", "get_supplier", "list_suppliers", "get_supplier_360", "get_supplier_risk", "get_sourcing_event", "list_sourcing_events", "get_award", "get_contract", "list_contracts", "search_contracts", "get_receipt", "get_invoice", "list_invoices", "search_catalog", "punchout_catalog"],
+  "writes": ["create_requisition", "update_requisition", "submit_requisition", "create_sourcing_event", "update_sourcing_event", "award_sourcing_event", "create_contract", "update_contract", "publish_contract", "create_purchase_order", "update_purchase_order", "receive_order", "create_supplier", "update_supplier", "set_supplier_qualification_status"],
+  "destructive": ["cancel_purchase_order", "close_purchase_order", "delete_requisition", "rescind_award", "cancel_sourcing_event", "terminate_contract", "deactivate_supplier", "disqualify_supplier"],
+  "outbound": ["send_purchase_order", "publish_sourcing_event", "invite_suppliers", "send_onboarding_invite", "email_supplier", "export_report"],
+  "value_fields": ["total", "net_value", "amount"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": "currency"
+}

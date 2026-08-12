@@ -1,0 +1,11 @@
+{
+  "app": "sap-ewm",
+  "simulator": false,
+  "reads": ["get_stock", "get_warehouse_task", "list_warehouse_tasks", "get_warehouse_order", "list_deliveries", "get_delivery", "get_inbound_delivery", "get_outbound_delivery", "get_hu", "list_handling_units", "get_bin", "get_wave", "get_physical_inventory_document"],
+  "writes": ["create_warehouse_task", "create_warehouse_order", "confirm_task", "confirm_warehouse_task", "create_wave", "assign_to_wave", "release_wave", "post_goods_movement", "post_goods_receipt", "post_goods_issue", "create_posting_change", "adjust_stock", "count_physical_inventory", "post_inventory_difference", "create_handling_unit"],
+  "destructive": ["cancel_task", "cancel_warehouse_task", "reverse_goods_movement", "reverse_goods_receipt", "reverse_goods_issue", "reverse_posting", "reverse_posting_change", "cancel_wave", "delete_delivery", "cancel_delivery"],
+  "outbound": ["send_asn", "print", "print_label", "export", "export_report", "send_delivery_confirmation"],
+  "value_fields": ["quantity", "net_value"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": null
+}

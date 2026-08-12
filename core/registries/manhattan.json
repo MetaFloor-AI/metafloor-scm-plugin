@@ -1,0 +1,11 @@
+{
+  "app": "manhattan",
+  "simulator": false,
+  "reads": ["get_inventory", "get_available_inventory", "get_lpn", "list_lpns", "list_orders", "get_order", "get_wave", "list_waves", "get_allocation", "get_shipment", "list_shipments", "get_asn", "get_location", "get_item", "get_sku", "get_task", "list_tasks", "get_cycle_count"],
+  "writes": ["receive", "receive_asn", "confirm_receipt", "putaway", "confirm_putaway", "move_lpn", "move_inventory", "adjust_inventory", "adjust_lpn", "post_cycle_count", "plan_wave", "create_wave", "release_wave", "allocate", "allocate_order", "confirm_pick", "confirm_pack", "cartonize", "stage", "confirm_shipment", "manifest"],
+  "destructive": ["cancel_shipment", "cancel_wave", "unrelease_wave", "cancel_allocation", "deallocate", "delete_order", "reverse_adjustment", "write_off_inventory", "scrap_inventory", "ship_order"],
+  "outbound": ["send_asn", "print_label", "print_shipping_label", "manifest_carrier", "export", "export_report"],
+  "value_fields": ["quantity", "total"],
+  "qty_fields": ["quantity", "qty", "units"],
+  "currency_field": null
+}

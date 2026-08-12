@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{--ink:#0f172a;--slate:#334155;--muted:#64748b;--line:#e2e8f0;--line2:#cbd5e1;--indigo:#4f46e5;
+    --green:#16a34a;--green-bg:#f0fdf4;--green-line:#bbf7d0;--amber:#d97706;--amber-bg:#fffbeb;--amber-line:#fde68a;
+    --gray:#64748b;--gray-bg:#f8fafc;--gray-line:#e2e8f0;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{width:1120px;padding:48px 52px 52px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:8px 0 6px}
+  .sub{font-size:16px;color:var(--muted);margin-bottom:30px;max-width:840px;line-height:1.5}
+  .tbl{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .row{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-top:1px solid var(--line)}
+  .row:first-child{border-top:none}
+  .cell{padding:18px 22px;display:flex;flex-direction:column;justify-content:center}
+  .cell.k{font-size:16px;font-weight:600;color:var(--ink)}
+  .cell.k code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:6px;padding:2px 7px;color:#3730a3}
+  .cell.k .s{font-size:13px;color:var(--muted);font-weight:500;margin-top:3px}
+  .cell.v{font-size:16px;font-weight:700;gap:2px;border-left:1px solid var(--line)}
+  .cell.v .s{font-size:13px;font-weight:500;margin-top:3px}
+  .hd{display:grid;grid-template-columns:1fr 1fr;background:#0f172a}
+  .hd div{padding:12px 22px;color:#cbd5e1;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .hd div:last-child{border-left:1px solid #1e293b}
+  .pass{background:var(--green-bg)} .pass .v{color:var(--green)}
+  .gate{background:var(--amber-bg)} .gate .v{color:var(--amber)}
+  .un{background:var(--gray-bg)} .un .v{color:var(--gray)}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;border-radius:6px;padding:3px 9px;margin-bottom:6px;width:max-content}
+  .tag.g{color:#15803d;background:#dcfce7} .tag.a{color:#b45309;background:#fef3c7} .tag.u{color:#475569;background:#e2e8f0}
+  .note{margin-top:22px;background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--indigo);border-radius:10px;padding:16px 20px;font-size:14.5px;color:var(--slate);line-height:1.55}
+  .note b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Safety boundary</div>
+  <h1>What the gate governs &mdash; and what it doesn&rsquo;t</h1>
+  <p class="sub">The gate is a control you configure, not a guarantee. It governs the connector tools you map; declare every SCM app so its actions are covered.</p>
+
+  <div class="tbl">
+    <div class="hd"><div>Tool call</div><div>Outcome</div></div>
+    <div class="row pass">
+      <div class="cell k">Read on a mapped app<div class="s">get / list / search</div></div>
+      <div class="cell v"><span class="tag g">PASS</span>Always allowed<div class="s">reads are never blocked</div></div>
+    </div>
+    <div class="row gate">
+      <div class="cell k">Write / destructive / outbound on a mapped app</div>
+      <div class="cell v"><span class="tag a">GATED</span>Per the autonomy dial<div class="s">an unknown op on the app &rarr; deny (fail closed)</div></div>
+    </div>
+    <div class="row un">
+      <div class="cell k">Any op on an <b>unmapped</b> app</div>
+      <div class="cell v"><span class="tag u">UNGOVERNED</span>Until you declare it<div class="s">run <code style="font-family:ui-monospace,Menlo,monospace;background:#e2e8f0;border-radius:5px;padding:1px 6px">/scm-connectors</code> to map it</div></div>
+    </div>
+    <div class="row un">
+      <div class="cell k">Bash / curl / any non-<code>mcp__</code> action</div>
+      <div class="cell v"><span class="tag u">UNGOVERNED</span>Outside the gate<div class="s">the gate governs <code style="font-family:ui-monospace,Menlo,monospace;background:#e2e8f0;border-radius:5px;padding:1px 6px">mcp__*</code> tools only</div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>The gate is only as good as your connector map.</b> Declare every SCM connector and classify each op (read / write / destructive / outbound); <b>/scm-connectors</b> echoes the classes back to confirm. An action taken outside a mapped connector runs under Claude Code&rsquo;s own permissions.
+  </div>
+</div>
+</body>
+</html>

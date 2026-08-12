@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # The harness is stdlib, zero-deps — no install step needed.
+      - name: Unit tests (harness: registry, dial, gate, audit, session, hook, values)
+        run: python -m unittest discover -s eval/tests -t .
+
+      - name: P0 eval (safety must be 100%, over-gate budget = 0)
+        run: python eval/run.py --max-over-gate 0
+
+      # Manifest / frontmatter / hooks.json validation. Best-effort: the claude
+      # CLI may not be available on the runner; don't fail the build if it isn't,
+      # but do fail if it IS present and validation fails.
+      - name: Plugin validate (if claude CLI available)
+        run: |
+          if command -v claude >/dev/null 2>&1; then
+            claude plugin validate . --strict
+          else
+            echo "claude CLI not installed on runner — skipping (run 'claude plugin validate . --strict' locally)"
+          fi

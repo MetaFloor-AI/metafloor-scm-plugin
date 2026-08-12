@@ -1,0 +1,11 @@
+{
+  "app": "infor",
+  "simulator": false,
+  "reads": ["get_purchase_order", "list_purchase_orders", "get_requisition", "list_requisitions", "get_supplier", "list_suppliers", "get_item", "get_inventory", "get_receipt", "list_receipts"],
+  "writes": ["create_requisition", "submit_requisition", "create_purchase_order", "update_purchase_order", "confirm_purchase_order", "release_purchase_order", "post_receipt", "post_invoice"],
+  "destructive": ["cancel_purchase_order", "cancel_purchase_order_line", "close_purchase_order", "delete_requisition", "reverse_receipt", "block_supplier"],
+  "outbound": ["send_po", "email_supplier", "export"],
+  "value_fields": ["net_value", "total", "amount"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": "currency"
+}

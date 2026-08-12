@@ -1,0 +1,11 @@
+{
+  "app": "anaplan",
+  "simulator": false,
+  "reads": ["get_model", "list_models", "get_module", "list_modules", "get_line_item", "list_line_items", "get_version", "list_versions", "get_list", "get_list_items", "read_cell_data", "list_actions", "list_processes", "get_action", "get_task_status"],
+  "writes": ["update_cell_data", "set_line_item_value", "add_list_items", "update_list_items", "run_read_process"],
+  "destructive": ["commit_to_actual_version", "publish_scenario_to_baseline", "run_import_action", "run_process", "run_delete_action", "delete_list_items", "delete_version"],
+  "outbound": ["run_export_action", "export_view", "download_file"],
+  "value_fields": ["value", "numericValue", "quantity", "volume", "amount"],
+  "qty_fields": ["quantity", "qty", "units", "volume"],
+  "currency_field": null
+}

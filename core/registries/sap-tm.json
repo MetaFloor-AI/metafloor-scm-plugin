@@ -1,0 +1,11 @@
+{
+  "app": "sap-tm",
+  "simulator": false,
+  "reads": ["get_freight_order", "list_freight_orders", "get_freight_booking", "get_freight_unit", "list_freight_units", "get_consignment_order", "get_carrier", "list_carriers", "get_rate", "get_charges", "get_settlement_document"],
+  "writes": ["create_freight_unit", "build_freight_units", "create_freight_order", "create_freight_booking", "update_freight_order", "run_carrier_selection", "calculate_charges", "tender_freight_order", "confirm_freight_order", "confirm_booking", "assign_carrier", "subcontract_freight_order", "create_settlement", "create_freight_settlement", "post_settlement"],
+  "destructive": ["cancel_freight_order", "cancel_booking", "delete_freight_unit", "reverse_settlement", "cancel_settlement"],
+  "outbound": ["send_tender", "send_edi", "print_output", "email_carrier"],
+  "value_fields": ["net_value", "total", "freight_amount"],
+  "qty_fields": ["gross_weight", "quantity"],
+  "currency_field": "currency"
+}

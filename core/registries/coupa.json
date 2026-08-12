@@ -1,0 +1,11 @@
+{
+  "app": "coupa",
+  "simulator": false,
+  "reads": ["get_requisition", "list_requisitions", "get_purchase_order", "list_purchase_orders", "get_supplier", "list_suppliers", "search_catalog", "get_receipt"],
+  "writes": ["create_requisition", "update_requisition", "submit_requisition", "create_purchase_order", "submit_purchase_order", "update_purchase_order", "receive_order"],
+  "destructive": ["cancel_purchase_order", "close_purchase_order", "delete_requisition", "deactivate_supplier"],
+  "outbound": ["email_supplier", "send_rfq", "export_report"],
+  "value_fields": ["total", "total_value", "grand_total", "amount"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": "currency"
+}

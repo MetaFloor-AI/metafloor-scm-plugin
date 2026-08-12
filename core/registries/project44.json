@@ -1,0 +1,11 @@
+{
+  "app": "project44",
+  "simulator": false,
+  "reads": ["track_shipment", "get_shipment", "get_eta", "list_shipments", "search_shipments", "get_exceptions", "get_dwell", "get_tracking_history", "get_event_history", "get_position_history", "list_subscriptions"],
+  "writes": ["create_alert_subscription", "update_alert_subscription", "start_tracking", "update_shipment_ref"],
+  "destructive": ["delete_subscription", "stop_tracking"],
+  "outbound": ["share_tracking", "export_tracking", "notify_downstream"],
+  "value_fields": [],
+  "qty_fields": [],
+  "currency_field": null
+}

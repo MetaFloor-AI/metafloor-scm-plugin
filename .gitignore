@@ -1,0 +1,37 @@
+# Secrets — never commit (env only)
+.env
+.env.*
+*.key
+*.pem
+id_rsa*
+*.age
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+
+# OS / editor
+.DS_Store
+*.swp
+*~
+
+# Eval / run outputs
+*.log
+
+# Session audit trails + local session state (runtime, not source)
+audit/
+.scm/
+
+# Internal builder-rules working memory (kept local; never published)
+.agents/
+
+
+# Internal skill-authoring method (local paths + build history) — kept local, not shipped
+eval/skill-builder/

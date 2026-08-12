@@ -1,0 +1,11 @@
+{
+  "app": "kinaxis",
+  "simulator": false,
+  "reads": ["get_scenario", "list_scenarios", "get_part", "get_forecast", "get_demand", "get_inventory", "get_supply", "list_supply_orders", "query_worksheet", "get_worksheet_data", "get_planned_orders", "get_scorecard"],
+  "writes": ["create_scenario", "update_worksheet", "update_worksheet_data", "update_forecast", "set_demand", "update_supply_order", "adjust_inventory", "import_data", "run_netting", "run_mrp"],
+  "destructive": ["commit_scenario", "publish_scenario", "promote_scenario", "delete_scenario", "revert_commit"],
+  "outbound": ["export_worksheet", "export_report", "export_scorecard", "email_scorecard", "share_scenario"],
+  "value_fields": ["TotalDemand", "TotalSupply", "Quantity", "quantity"],
+  "qty_fields": ["Quantity", "quantity", "qty"],
+  "currency_field": null
+}

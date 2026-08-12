@@ -1,0 +1,11 @@
+{
+  "app": "oracle",
+  "simulator": false,
+  "reads": ["get_requisition", "list_requisitions", "get_purchase_order", "list_purchase_orders", "get_po_lifecycle", "get_change_order", "list_change_orders", "get_supplier", "list_suppliers", "get_approved_supplier_list", "get_item", "search_catalog", "get_receipt", "list_receipts", "get_vendor_bill", "list_vendor_bills", "run_suiteql"],
+  "writes": ["create_requisition", "update_requisition", "submit_requisition", "withdraw_requisition", "process_requisition_to_order", "create_purchase_order", "update_purchase_order", "submit_purchase_order", "acknowledge_purchase_order", "hold_purchase_order", "release_purchase_order_hold", "reopen_purchase_order", "create_change_order", "submit_change_order", "create_receipt", "create_vendor_bill"],
+  "destructive": ["cancel_purchase_order", "cancel_purchase_order_line", "close_purchase_order", "finally_close_purchase_order", "delete_purchase_order", "cancel_requisition", "delete_requisition", "delete_item_receipt", "reverse_receipt", "void_vendor_bill", "deactivate_supplier"],
+  "outbound": ["communicate_purchase_order", "send_change_order_to_supplier", "email_supplier", "export_report"],
+  "value_fields": ["Total", "OrderedAmount", "LineAmount", "Amount", "total", "grandTotal", "amount"],
+  "qty_fields": ["Quantity", "OrderedQuantity", "quantity", "qty"],
+  "currency_field": "CurrencyCode"
+}

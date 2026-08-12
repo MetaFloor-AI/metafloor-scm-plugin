@@ -1,0 +1,11 @@
+{
+  "app": "sap",
+  "simulator": false,
+  "reads": ["get_material_stock", "get_stock", "get_material", "get_mrp", "get_vendor", "list_purchase_orders", "get_purchase_order"],
+  "writes": ["create_purchase_requisition", "create_purchase_order", "update_purchase_order", "post_goods_receipt"],
+  "destructive": ["cancel_purchase_order", "reverse_goods_receipt", "delete_purchase_requisition", "block_vendor"],
+  "outbound": ["send_po_output", "email_vendor"],
+  "value_fields": ["net_value", "total", "gross_value"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": "currency"
+}

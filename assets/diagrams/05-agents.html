@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{--ink:#0f172a;--slate:#334155;--muted:#64748b;--line:#e2e8f0;--line2:#cbd5e1;--indigo:#4f46e5;--indigo-bg:#eef2ff;--indigo-line:#c7d2fe;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{width:1120px;padding:48px 52px 52px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:8px 0 6px}
+  .sub{font-size:16px;color:var(--muted);margin-bottom:30px;max-width:840px;line-height:1.5}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .card .nm{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:700;color:var(--indigo);background:var(--indigo-bg);border:1px solid var(--indigo-line);border-radius:8px;padding:5px 10px;display:inline-block;margin-bottom:12px}
+  .card .role{font-size:16px;font-weight:700;line-height:1.35;margin-bottom:6px}
+  .card .desc{font-size:14px;color:var(--slate);line-height:1.5}
+  .card .when{font-size:13px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line2)}
+  .card .when b{color:var(--slate)}
+  .foot{margin-top:22px;background:#0f172a;border-radius:12px;padding:18px 22px;color:#e2e8f0;font-size:14.5px;line-height:1.6}
+  .foot .h{color:#fff;font-weight:700;font-size:15px;margin-bottom:5px}
+  .foot b{color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Independent review agents</div>
+  <h1>A fresh mind before a consequential action</h1>
+  <p class="sub">Four subagents the main agent delegates to. Each runs in its own clean context &mdash; the one thing a skill can&rsquo;t give: independence. A review by the mind that made the call is self-review.</p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="nm">decision-reviewer</span>
+      <div class="role">Red-teams the decision before it commits</div>
+      <div class="desc">Separates facts from assumptions, challenges false premises, confirms the risk class and approval requirement. Returns ready / not-ready.</div>
+      <div class="when"><b>Delegate at:</b> any gate step, before a committing / destructive / outbound action.</div>
+    </div>
+    <div class="card">
+      <span class="nm">scope-auditor</span>
+      <div class="role">Checks blast radius against the evidence</div>
+      <div class="desc">Sizes both errors &mdash; under-scope (missed affected items) and over-scope (touching unaffected ones) &mdash; runs the population tie-out, checks salami exposure.</div>
+      <div class="when"><b>Delegate at:</b> a cancel, a recall, a bulk write &mdash; the domain&rsquo;s worst error is scope.</div>
+    </div>
+    <div class="card">
+      <span class="nm">genealogy-tracer</span>
+      <div class="role">Closes the lot genealogy + where-distributed map</div>
+      <div class="desc">Traces affected lots forward across ERP / PLM / WMS / TMS / CRM and returns one reconciled units-by-node map with its open gaps.</div>
+      <div class="when"><b>Delegate at:</b> a recall, field action, or multi-tier shortage.</div>
+    </div>
+    <div class="card">
+      <span class="nm">cross-system-reconciler</span>
+      <div class="role">Resolves when two systems disagree</div>
+      <div class="desc">Pulls both readings, determines which system owns the fact, returns the reconciled value or an explicit halt &mdash; never averages the two.</div>
+      <div class="when"><b>Delegate at:</b> on-hand vs WMS, ordered vs received, invoice vs GR vs PO.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="h">They advise &mdash; they never decide</div>
+    Each is fully tool-enabled and analysis-only <b>by its prompt</b>, not by disabling its tools. None owns safety: the deterministic gate enforces regardless of any agent&rsquo;s verdict.
+  </div>
+</div>
+</body>
+</html>

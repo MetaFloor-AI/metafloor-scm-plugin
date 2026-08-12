@@ -1,0 +1,11 @@
+{
+  "app": "blueyonder",
+  "simulator": false,
+  "reads": ["get_forecast", "list_forecasts", "get_demand_forecast", "get_consensus_forecast", "get_supply_plan", "get_master_plan", "get_planned_orders", "list_planned_orders", "get_recommended_shipments", "get_inventory_position", "get_projected_inventory", "get_safety_stock", "get_inventory_target", "get_item", "get_sku", "get_sku_location", "get_scenario", "list_scenarios", "compare_scenarios", "get_published_plan", "get_baseline", "get_planning_parameter", "get_service_level"],
+  "writes": ["create_scenario", "copy_scenario", "clone_scenario", "update_forecast", "adjust_forecast", "override_forecast", "apply_forecast_override", "edit_scenario", "update_scenario", "set_safety_stock", "update_safety_stock", "update_inventory_target", "update_planning_parameter", "set_service_level", "update_lead_time", "set_lot_size", "set_min_max", "run_planning", "run_supply_plan", "run_optimizer", "run_deployment", "run_forecast"],
+  "destructive": ["publish_plan", "publish_scenario", "commit_plan", "commit_scenario", "release_plan", "activate_plan", "reset_plan", "reset_baseline", "restore_baseline", "revert_plan", "overwrite_baseline", "delete_scenario", "discard_scenario"],
+  "outbound": ["export_plan", "export_forecast", "export_report", "publish_to_erp", "release_planned_orders_to_erp", "send_plan", "email_plan"],
+  "value_fields": ["forecast_qty", "demand_qty", "planned_qty", "recommended_qty", "volume", "quantity"],
+  "qty_fields": ["quantity", "qty", "units", "planned_qty", "forecast_qty"],
+  "currency_field": null
+}

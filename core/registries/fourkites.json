@@ -1,0 +1,11 @@
+{
+  "app": "fourkites",
+  "simulator": false,
+  "reads": ["get_load_status", "get_load", "list_loads", "track_shipment", "get_eta", "get_dynamic_eta", "get_exceptions", "get_milestones", "get_stops", "get_appointments", "get_yard_status", "get_dwell", "get_facility", "get_carrier", "get_lane"],
+  "writes": ["create_alert", "update_alert", "update_load_ref"],
+  "destructive": ["delete_alert"],
+  "outbound": ["share_status", "export_tracking", "email_status", "export_report"],
+  "value_fields": [],
+  "qty_fields": [],
+  "currency_field": null
+}

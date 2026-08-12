@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --ink:#0f172a; --slate:#334155; --muted:#64748b; --line:#e2e8f0; --line2:#cbd5e1;
+    --indigo:#4f46e5; --indigo-bg:#eef2ff; --indigo-line:#c7d2fe;
+    --card:#f8fafc; --card2:#f1f5f9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{width:1120px;padding:48px 52px 52px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:8px 0 6px}
+  .sub{font-size:16px;color:var(--muted);margin-bottom:34px;max-width:760px;line-height:1.5}
+  .stack{display:flex;flex-direction:column;gap:18px}
+  .layer{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff;position:relative}
+  .layer .tag{position:absolute;top:-11px;left:22px;background:#fff;padding:0 10px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+  .layer h3{font-size:18px;font-weight:700;margin-bottom:4px}
+  .layer .note{font-size:14px;color:var(--muted);line-height:1.45}
+  .owns{border-color:var(--indigo-line);background:linear-gradient(180deg,#fbfcff, #f6f8ff);box-shadow:0 1px 0 rgba(79,70,229,.04),0 10px 30px -18px rgba(79,70,229,.35)}
+  .owns .tag{color:var(--indigo)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+  .pill{border:1px solid var(--indigo-line);background:var(--indigo-bg);border-radius:11px;padding:15px 16px}
+  .pill h4{font-size:15px;font-weight:700;color:var(--indigo);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .pill .items{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:12.5px;font-weight:600;color:var(--slate);background:#fff;border:1px solid var(--indigo-line);border-radius:999px;padding:5px 11px}
+  .runtime{background:var(--card)}
+  .runtime .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .rchip{font-size:13px;font-weight:600;color:var(--slate);background:#fff;border:1px solid var(--line2);border-radius:8px;padding:6px 12px}
+  .conn{background:var(--card2)}
+  .conn .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .cchip{font-size:13px;font-weight:600;color:#475569;background:#fff;border:1px solid var(--line2);border-radius:8px;padding:6px 12px}
+  .flow{display:flex;justify-content:center;margin:2px 0}
+  .flow svg{display:block}
+  .foot{margin-top:26px;display:flex;gap:10px;align-items:flex-start;background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--indigo);border-radius:10px;padding:14px 18px}
+  .foot .k{font-weight:700;color:var(--ink);font-size:14px}
+  .foot .v{color:var(--slate);font-size:14px;line-height:1.5}
+  .arrowlbl{font-size:12px;fill:var(--muted);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">MetaFloor Supply Chain · Claude Code plugin</div>
+  <h1>What the plugin owns — and what it never touches</h1>
+  <p class="sub">It adds a layer of operator judgment and safety policy on top of Claude Code. It owns no tools and never sees the integration layer, so it stays portable across whatever the customer connects.</p>
+
+  <div class="stack">
+    <div class="layer owns">
+      <span class="tag">THE PLUGIN &mdash; expertise + safety policy</span>
+      <div class="cols">
+        <div class="pill">
+          <h4>Operator expertise</h4>
+          <div class="items">
+            <span class="chip">55 enterprise systems</span>
+            <span class="chip">16 end-to-end workflows</span>
+            <span class="chip">gating reference</span>
+            <span class="chip">4 review agents</span>
+          </div>
+        </div>
+        <div class="pill">
+          <h4>Safety policy</h4>
+          <div class="items">
+            <span class="chip">deterministic gate</span>
+            <span class="chip">autonomy dial (L0&ndash;L5)</span>
+            <span class="chip">hash-chained audit</span>
+            <span class="chip">fails closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <svg width="560" height="46" viewBox="0 0 560 46" role="img" aria-label="governs decisions flowing down">
+        <defs><marker id="a" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+        <line x1="180" y1="4" x2="180" y2="34" stroke="#94a3b8" stroke-width="2" marker-end="url(#a)"/>
+        <text x="196" y="24" class="arrowlbl">governs each consequential action</text>
+      </svg>
+    </div>
+
+    <div class="layer runtime">
+      <span class="tag">CLAUDE CODE &mdash; the runtime (not the plugin)</span>
+      <h3>Agent loop, tools, MCP client, permissions, execution</h3>
+      <div class="note">Claude Code runs the model, loads the skills, fires the hooks, and executes tool calls.</div>
+      <div class="row">
+        <span class="rchip">agent loop</span><span class="rchip">Skill loading</span><span class="rchip">MCP client</span>
+        <span class="rchip">PreToolUse hook</span><span class="rchip">permissions</span><span class="rchip">execution</span>
+      </div>
+    </div>
+
+    <div class="flow">
+      <svg width="560" height="46" viewBox="0 0 560 46" role="img" aria-label="calls the customer's real connectors">
+        <defs><marker id="b" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+        <line x1="180" y1="4" x2="180" y2="34" stroke="#94a3b8" stroke-width="2" marker-end="url(#b)"/>
+        <text x="196" y="24" class="arrowlbl">calls the real tool (governed by the gate)</text>
+      </svg>
+    </div>
+
+    <div class="layer conn">
+      <span class="tag">CUSTOMER &mdash; you bring the tools</span>
+      <h3>Your real MCP connectors</h3>
+      <div class="note">The plugin ships no connector. It classifies whatever the customer maps.</div>
+      <div class="row">
+        <span class="cchip">SAP</span><span class="cchip">Oracle</span><span class="cchip">Kinaxis</span><span class="cchip">Manhattan</span>
+        <span class="cchip">Coupa</span><span class="cchip">Veeva</span><span class="cchip">Blue Yonder</span><span class="cchip">&hellip;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>
+      <span class="k">The boundary in one line.&nbsp;</span>
+      <span class="v">The plugin contributes <b>judgment</b> (how each system works, how each decision is made) and <b>safety</b> (a deterministic gate over consequential actions). It never owns a tool, connector, or integration &mdash; that is the customer's, kept portable on purpose.</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

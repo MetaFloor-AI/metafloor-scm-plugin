@@ -1,0 +1,11 @@
+{
+  "app": "dynamics365",
+  "simulator": false,
+  "reads": ["get_purchase_order", "list_purchase_orders", "get_purchase_requisition", "list_purchase_requisitions", "get_vendor", "list_vendors", "get_item", "list_items", "get_product_receipt", "get_vendor_invoice", "get_inventory", "get_on_hand", "d365fo_query_entities", "d365fo_get_entity_record"],
+  "writes": ["create_purchase_requisition", "submit_purchase_requisition", "create_purchase_order", "update_purchase_order", "confirm_purchase_order", "post_product_receipt", "post_vendor_invoice", "d365fo_create_entity_record", "d365fo_update_entity_record"],
+  "destructive": ["cancel_purchase_order", "delete_purchase_order", "delete_requisition", "cancel_product_receipt", "reverse_product_receipt", "reverse_vendor_invoice", "hold_vendor", "d365fo_delete_entity_record"],
+  "outbound": ["send_po", "email_vendor", "export", "export_report"],
+  "value_fields": ["net_value", "total", "amount", "LineAmount"],
+  "qty_fields": ["quantity", "qty"],
+  "currency_field": "currency"
+}

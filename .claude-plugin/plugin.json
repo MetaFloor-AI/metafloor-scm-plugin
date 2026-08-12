@@ -1,0 +1,31 @@
+{
+  "name": "supply-chain",
+  "displayName": "MetaFloor Supply Chain",
+  "version": "0.2.3",
+  "description": "Deep supply-chain operator expertise for Claude Code: 55 enterprise-system skills (SAP, Oracle, Kinaxis, Manhattan, Coupa, Veeva, and more) across ERP, planning, warehouse, transportation, procurement, quality, MES, maintenance, customs, risk, PLM, and CRM; 16 end-to-end business workflows grounded in real supply-chain decisions; four independent-review agents; and a deterministic policy gate with an autonomy dial. The plugin owns expertise + safety policy, never the tool/integration layer.",
+  "author": { "name": "MetaFloor", "url": "https://metafloor.ai" },
+  "homepage": "https://metafloor.ai",
+  "repository": "https://github.com/MetaFloor-AI/metafloor-scm-plugin",
+  "license": "MIT",
+  "keywords": ["supply-chain", "erp", "sap", "oracle", "kinaxis", "procurement", "warehouse", "quality", "recall", "safety", "autonomy"],
+  "skills": [
+    "./skills/platforms/erp",
+    "./skills/platforms/planning",
+    "./skills/platforms/warehouse",
+    "./skills/platforms/transportation",
+    "./skills/platforms/oms",
+    "./skills/platforms/procurement",
+    "./skills/platforms/contracts",
+    "./skills/platforms/quality",
+    "./skills/platforms/mes",
+    "./skills/platforms/maintenance",
+    "./skills/platforms/customs",
+    "./skills/platforms/visibility",
+    "./skills/platforms/risk",
+    "./skills/platforms/plm",
+    "./skills/platforms/crm",
+    "./skills/business-workflows",
+    "./skills/gating"
+  ],
+  "hooks": "./hooks/hooks.json"
+}

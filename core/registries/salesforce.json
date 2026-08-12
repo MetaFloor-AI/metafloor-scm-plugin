@@ -1,0 +1,11 @@
+{
+  "app": "salesforce",
+  "simulator": false,
+  "reads": ["soqlQuery", "find", "getObjectSchema", "getUserInfo", "listRecentSobjectRecords", "getRelatedRecords", "query", "get_order", "list_orders", "get_opportunity", "list_opportunities", "get_account", "list_accounts", "get_product", "get_sales_agreement", "list_sales_agreements"],
+  "writes": ["createSobjectRecord", "updateSobjectRecord", "updateRelatedRecord", "create_order", "update_order", "create_opportunity", "update_opportunity", "create_sales_agreement", "update_sales_agreement"],
+  "destructive": ["deleteSobjectRecord", "deleteRelatedRecord", "delete_record", "delete_order"],
+  "outbound": ["send_email", "sendEmail", "share_record", "export_report"],
+  "value_fields": ["Amount", "TotalAmount", "total", "TotalAgreementAmount", "TotalPrice"],
+  "qty_fields": ["Quantity", "quantity"],
+  "currency_field": "CurrencyIsoCode"
+}

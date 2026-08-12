@@ -1,0 +1,11 @@
+{
+  "app": "o9",
+  "simulator": false,
+  "reads": ["get_forecast", "get_demand_plan", "get_consensus_forecast", "get_baseline_forecast", "get_scenario", "list_scenarios", "get_inventory_position", "get_supply_plan", "get_measure", "query_graph", "get_planning_cell", "list_versions", "get_version"],
+  "writes": ["create_scenario", "copy_scenario", "update_scenario", "edit_scenario_measure", "set_demand_assumption", "apply_forecast_override", "run_what_if", "simulate_scenario", "run_supply_solver"],
+  "destructive": ["publish_plan", "publish_forecast", "commit_consensus_plan", "approve_consensus_plan", "promote_scenario_to_consensus", "commit_supply_plan", "overwrite_baseline", "lock_version", "delete_scenario", "delete_version"],
+  "outbound": ["export_plan", "export_forecast", "export_report", "push_plan_to_erp", "share_plan", "email_plan"],
+  "value_fields": ["value", "plan_value", "consensus_value", "revenue", "gross_value", "financial_value"],
+  "qty_fields": ["volume", "quantity", "qty", "units", "demand_units", "plan_qty"],
+  "currency_field": null
+}

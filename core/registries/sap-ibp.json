@@ -1,0 +1,11 @@
+{
+  "app": "sap-ibp",
+  "simulator": false,
+  "reads": ["get_planning_area", "list_planning_areas", "read_key_figure_data", "query_planning_data", "list_versions", "get_version", "list_scenarios", "get_scenario", "get_time_profile", "list_planning_objects"],
+  "writes": ["create_scenario", "write_key_figure", "update_key_figure_data", "import_key_figure_data", "run_planning_operator", "run_heuristic", "run_copy_operator"],
+  "destructive": ["copy_to_baseline_version", "publish_scenario_to_baseline", "promote_scenario", "copy_version", "delete_version", "delete_scenario"],
+  "outbound": ["export_key_figure_data", "export_planning_view", "export_report"],
+  "value_fields": ["CONSENSUSDEMANDPLANQTY", "DEMANDQTY", "SUPPLYQTY", "PROJECTEDINVENTORYQTY", "keyfigurevalue"],
+  "qty_fields": ["quantity", "qty", "keyfigurevalue"],
+  "currency_field": null
+}

@@ -1,0 +1,11 @@
+{
+  "app": "otm",
+  "simulator": false,
+  "reads": ["get_shipment", "list_shipments", "get_order_release", "list_orders", "get_order", "get_rate", "rate_shipment", "get_rate_offering", "get_carrier", "get_service_provider", "get_lane", "get_location", "get_tender_status", "get_invoice", "get_voucher"],
+  "writes": ["plan_shipment", "bulk_plan", "create_shipment", "tender_shipment", "book_carrier", "retender_shipment", "match_invoice", "approve_invoice"],
+  "destructive": ["cancel_shipment", "unplan_shipment", "cancel_tender", "withdraw_tender", "untender_shipment", "delete_order_release", "delete_order", "void_voucher", "settle_freight", "issue_voucher"],
+  "outbound": ["send_tender_to_carrier", "send_edi", "transmit_tender", "export_report", "export_shipment"],
+  "value_fields": ["total_cost", "freight_cost", "amount", "total"],
+  "qty_fields": ["weight", "quantity"],
+  "currency_field": "currency"
+}

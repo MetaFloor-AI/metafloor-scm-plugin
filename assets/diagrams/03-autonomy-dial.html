@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{--ink:#0f172a;--slate:#334155;--muted:#64748b;--line:#e2e8f0;--line2:#cbd5e1;--indigo:#4f46e5;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{width:1120px;padding:48px 52px 52px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:8px 0 6px}
+  .sub{font-size:16px;color:var(--muted);margin-bottom:30px;max-width:820px;line-height:1.5}
+  .ladder{display:flex;flex-direction:column;gap:10px}
+  .lvl{display:grid;grid-template-columns:70px 190px 1fr;align-items:center;gap:18px;border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:#fff}
+  .badge{font-size:15px;font-weight:800;text-align:center;border-radius:9px;padding:9px 0;color:#fff}
+  .name{font-size:17px;font-weight:700}
+  .name .k{display:block;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-top:2px}
+  .beh{font-size:15px;color:var(--slate);line-height:1.45}
+  .beh b{color:var(--ink)}
+  .l0 .badge{background:#0f766e} .l1 .badge{background:#0891b2} .l2 .badge{background:#4f46e5} .l3 .badge{background:#7c3aed} .l4 .badge{background:#d97706} .l5 .badge{background:#dc2626}
+  .l2{border-color:#c7d2fe;box-shadow:0 0 0 1px #eef2ff inset}
+  .default-tag{display:inline-block;font-size:11px;font-weight:700;color:#4f46e5;background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle}
+  .floors{margin-top:22px;background:#0f172a;border-radius:12px;padding:18px 22px;color:#e2e8f0;font-size:14.5px;line-height:1.6}
+  .floors .h{color:#fff;font-weight:700;font-size:15px;margin-bottom:6px}
+  .floors b{color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">The autonomy dial</div>
+  <h1>One dial, set by the customer &mdash; per workflow × app</h1>
+  <p class="sub">The agent never picks its own level. The customer sets it; the deterministic gate enforces it. A fresh install ships gated, so it can never auto-approve out of the box.</p>
+
+  <div class="ladder">
+    <div class="lvl l0"><div class="badge">L0</div><div class="name">observe<span class="k">read only</span></div><div class="beh">Reads and flags. <b>Every write is blocked</b> &mdash; the agent proposes, a human runs it.</div></div>
+    <div class="lvl l1"><div class="badge">L1</div><div class="name">suggest<span class="k">drafts</span></div><div class="beh">Drafts the action for review. <b>Every write is blocked</b> until a human executes it.</div></div>
+    <div class="lvl l2"><div class="badge">L2</div><div class="name">gated<span class="k">approve each</span></div><div class="beh"><b>Executes, but pauses on every write</b> for human approval.<span class="default-tag">DEFAULT</span></div></div>
+    <div class="lvl l3"><div class="badge">L3</div><div class="name">bounded-auto<span class="k">within limits</span></div><div class="beh">Auto-approves within <b>value / quantity / count</b> limits (and matching currency); anything over asks.</div></div>
+    <div class="lvl l4"><div class="badge">L4</div><div class="name">auto<span class="k">in-workflow</span></div><div class="beh">Executes freely in-workflow, <b>audited after</b>. A deliberate high-trust choice.</div></div>
+    <div class="lvl l5"><div class="badge">L5</div><div class="name">yolo<span class="k">dev / test only</span></div><div class="beh">No gates &mdash; and <b>refused on a real connector</b>. Runs only against a simulator.</div></div>
+  </div>
+
+  <div class="floors">
+    <div class="h">Floors that hold under every level</div>
+    Reads always pass. <b>Irreversible / destructive</b> writes gate below L4. Anything that <b>sends data outside the company</b> gates below L5. An <b>unknown op</b> on a mapped app, or a missing/broken config, <b>fails closed</b> (deny).
+  </div>
+</div>
+</body>
+</html>
